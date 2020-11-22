@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Nodepad</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+  <div class="outputcontainer">
+    <input type="text" id="info" placeholder="Поиск" class="inputtext"/></br></br>
+    <form method="post" id = "getTitle">
+        <input type="submit" value="По заголовку" id="titlesearch" class="inputbutton"/>
+    </form>
+    <br />
+    <form method="post" id = "getNode">
+        <input type="submit" value="По тексту" id="nodesearch" class="inputbutton"/>
+    </form>
+    <br />
+    <form method="post" id = "getTag">
+        <input type="submit" value="По метке" id="tagsearch" class="inputbutton"/>
+    </form>
+  </div>
+<br /><br /><br />
+
+  <script>
+  $("#getTitle").submit(function(e) {
+      e.preventDefault();
+      var info = document.getElementById("info").value;
+      $.ajax({
+          type: "POST",
+          url: "/getTitle",
+          data:{info: info},
+          success: function(data){
+            var res = JSON.parse(data);
+            var table = document.getElementById('tab');
+            if(table){
+              table.parentNode.removeChild(table);
+            }
+            if (res.length){
+              var table = document.createElement('table');
+              table.setAttribute("id", "tab");
+              var newRow = table.insertRow(0);
+              newRow.setAttribute("id", "roof");
+              var newCell = newRow.insertCell(0);
+              newCell.width = "200";
+              newCell.innerHTML = "Название";
+              var newCell = newRow.insertCell(1);
+              newCell.width = "200";
+              newCell.innerHTML = "Запись";
+              var newCell = newRow.insertCell(2);
+              newCell.width = "200";
+              newCell.innerHTML = "Теги";
+              var newCell = newRow.insertCell(3);
+              newCell.width = "200";
+              newCell.innerHTML = "Файлы";
+              for (var i = 0; i < res.length; i++){
+                var newRow = table.insertRow(i+1);
+                var newCell = newRow.insertCell(0);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].title;
+                var newCell = newRow.insertCell(1);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].nodeBody;
+                var newCell = newRow.insertCell(2);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].tags;
+                var namearr = res[i].filename.split('%');
+                var patharr = res[i].files.split('%');
+                var newCell = newRow.insertCell(3);
+                newCell.width = "200";
+                for (var j = 0; j < namearr.length - 1; j++)
+                {
+                  newCell.innerHTML += "<a href=\"" + patharr[j] + "\">"+ namearr[j] + "</a>" + "</br>";
+                }
+              }
+              document.body.appendChild(table);
+            }
+          },
+      });
+  });
+
+  $("#getNode").submit(function(e) {
+      e.preventDefault();
+      var info = document.getElementById("info").value;
+      $.ajax({
+          type: "POST",
+          url: "/getNode",
+          data:{info: info},
+          success: function(data){
+            var res = JSON.parse(data);
+            var table = document.getElementById('tab');
+            if(table){
+              table.parentNode.removeChild(table);
+            }
+            if (res.length){
+              var table = document.createElement('table');
+              table.setAttribute("id", "tab");
+              var newRow = table.insertRow(0);
+              newRow.setAttribute("id", "roof");
+              var newCell = newRow.insertCell(0);
+              newCell.width = "200";
+              newCell.innerHTML = "Название";
+              var newCell = newRow.insertCell(1);
+              newCell.width = "200";
+              newCell.innerHTML = "Запись";
+              var newCell = newRow.insertCell(2);
+              newCell.width = "200";
+              newCell.innerHTML = "Теги";
+              var newCell = newRow.insertCell(3);
+              newCell.width = "200";
+              newCell.innerHTML = "Файлы";
+              for (var i = 0; i < res.length; i++){
+                var newRow = table.insertRow(i+1);
+                var newCell = newRow.insertCell(0);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].title;
+                var newCell = newRow.insertCell(1);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].nodeBody;
+                var newCell = newRow.insertCell(2);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].tags;
+                var namearr = res[i].filename.split('%');
+                var patharr = res[i].files.split('%');
+                var newCell = newRow.insertCell(3);
+                newCell.width = "200";
+                for (var j = 0; j < namearr.length - 1; j++)
+                {
+                  newCell.innerHTML += "<a href=\"" + patharr[j] + "\">"+ namearr[j] + "</a>" + "</br>";
+                }
+              }
+              document.body.appendChild(table);
+            }
+          },
+      });
+  });
+
+  $("#getTag").submit(function(e) {
+      e.preventDefault();
+      var info = document.getElementById("info").value;
+      $.ajax({
+          type: "POST",
+          url: "/getTag",
+          data:{info: info},
+          success: function(data){
+            var res = JSON.parse(data);
+            var table = document.getElementById('tab');
+            if(table){
+              table.parentNode.removeChild(table);
+            }
+            if (res.length){
+              var table = document.createElement('table');
+              table.setAttribute("id", "tab");
+              var newRow = table.insertRow(0);
+              newRow.setAttribute("id", "roof");
+              var newCell = newRow.insertCell(0);
+              newCell.width = "200";
+              newCell.innerHTML = "Название";
+              var newCell = newRow.insertCell(1);
+              newCell.width = "200";
+              newCell.innerHTML = "Запись";
+              var newCell = newRow.insertCell(2);
+              newCell.width = "200";
+              newCell.innerHTML = "Теги";
+              var newCell = newRow.insertCell(3);
+              newCell.width = "200";
+              newCell.innerHTML = "Файлы";
+              for (var i = 0; i < res.length; i++){
+                var newRow = table.insertRow(i+1);
+                var newCell = newRow.insertCell(0);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].title;
+                var newCell = newRow.insertCell(1);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].nodeBody;
+                var newCell = newRow.insertCell(2);
+                newCell.width = "200";
+                newCell.innerHTML = res[i].tags;
+                var namearr = res[i].filename.split('%');
+                var patharr = res[i].files.split('%');
+                var newCell = newRow.insertCell(3);
+                newCell.width = "200";
+                for (var j = 0; j < namearr.length - 1; j++)
+                {
+                  newCell.innerHTML += "<a href=\"" + patharr[j] + "\">"+ namearr[j] + "</a>" + "</br>";
+                }
+              }
+              document.body.appendChild(table);
+            }
+          },
+      });
+  });
+
+  </script>
+
+</body>
+
+</html>

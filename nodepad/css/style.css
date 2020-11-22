@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+*:focus{
+  outline: none;
+}
+body{
+  background-image: url(/background);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Merriweather', serif;
+}
+.inputcontainer{
+  width: 300px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 51.2%;
+  margin: -70px 0 0 -170px;
+  border: 3px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+}
+.postcontainer{
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  top: 35%;
+  left: 51.2%;
+  margin: -70px 0 0 -170px;
+  border: 3px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+}
+.outputcontainer{
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  top: 20%;
+  left: 51.2%;
+  margin: -70px 0 0 -170px;
+  border: 3px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+}
+.inputtext{
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 45px;
+  font-family: 'Merriweather', serif;
+  font-size: 13px;
+	padding: 6px 0 6px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 8px;
+}
+.inputarea{
+  width: 200px;
+  height: 150px;
+  margin-top: 10px;
+  margin-left: 45px;
+  font-family: 'Merriweather', serif;
+  font-size: 13px;
+	padding: 6px 0 6px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 8px;
+}
+.inputbutton{
+  display: inline-block;
+  width: 100px;
+  font-family: 'Merriweather', serif;
+  color: rgb(68,68,68);
+  padding: .2em 1.2em;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+}
+.inputbutton:hover{
+  color: rgb(24,24,24);
+  border: 1px solid rgb(198,198,198);
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.inputbutton:active{
+  color: rgb(51,51,51);
+  border: 1px solid rgb(204,204,204);
+  background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+  box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+}
+table{
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  margin: -70px 0 0 -170px;
+  font-family: 'Merriweather', serif;
+  font-size: 13px;
+  text-align: center;
+  border-collapse: collapse;
+  border: 3px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.7);
+
+}
+th{
+  font-weight: normal;
+  border-top: 4px solid #aabcfe;
+  padding: 8px;
+}
+td{
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid transparent;
+  padding: 8px;
+}
+tr:hover td{
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+}
+#roof{
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+}
+#input{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 45px;
+}
+#output{
+  margin-left: 7px;
+}
+#postbutton{
+  width: 200px;
+  margin-left: 50px;
+  font-size: 16px;
+}
+#postfile{
+  margin-left: 35px;
+  font-family: 'Merriweather', serif;
+}
+#titlesearch{
+  width: 200px;
+  margin-left: 50px;
+  font-size: 16px;
+}
+#nodesearch{
+  width: 200px;
+  margin-left: 50px;
+  font-size: 16px;
+}
+#tagsearch{
+  width: 200px;
+  margin-left: 50px;
+  font-size: 16px;
+}

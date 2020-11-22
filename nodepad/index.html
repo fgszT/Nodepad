@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Nodepad</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+  <div class="inputcontainer">
+        <input type="text" placeholder="Введите имя" name="user" id="user" class="inputtext" required></br>
+        <button onclick="input()" id="input" class="inputbutton">Ввод записей</button>
+        <button onclick="output()" id="output" class="inputbutton">Поиск записей</button>
+  </div>
+
+  <script type="text/javascript">
+  function input() {
+    var info = document.getElementById("user").value;
+    if (info != ""){
+      $.ajax({
+          type: "POST",
+          url: "/senduser",
+          data:{user: info},
+      });
+      window.location = "/input"
+    }
+    else {
+      alert("Введите имя!");
+    }
+  }
+
+  function output() {
+    var info = document.getElementById("user").value;
+    if (info != ""){
+      $.ajax({
+          type: "POST",
+          url: "/senduser",
+          data:{user: info},
+      });
+    window.location = "/output"
+    }
+    else {
+      alert("Введите имя!");
+    }
+  }
+
+  </script>
+</body>
+
+</html>

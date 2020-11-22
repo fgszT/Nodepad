@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Nodepad</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+  <div class="postcontainer">
+    <form method="post" id="enterform" enctype="multipart/form-data">
+        <input type="text" placeholder="Название" name="title" id="title" class="inputtext"/></br></br>
+        <textarea type="text" placeholder="Запись" name="nodebody" id="nodebody" class="inputarea"></textarea></br></br>
+        <input type="text" placeholder="Метки" name="tags" id="tags" class="inputtext"/></br></br>
+        <input type="file" name="files" multiple="multiple" id="postfile"></br></br>
+        <input type="submit" value="Отправить" id="postbutton" class="inputbutton"/>
+    </form>
+  </div>
+
+  <script>
+
+  $("#enterform").submit(function(e) {
+      e.preventDefault();
+      var formData = new FormData(document.forms.enterform);
+      $.ajax({
+        type: "POST",
+        url: '/upload',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(){
+
+        }
+    });
+  });
+
+  </script>
+
+</body>
+
+</html>
